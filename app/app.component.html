@@ -1,0 +1,12 @@
+<ActionBar title="My App" icon="" class="action-bar">
+</ActionBar>
+<StackLayout class="p-20">
+    <GridLayout rows="200" columns="auto, *, auto">
+        <Label text="NativeScript" textWrap="true" row="0" col="0" verticalAlignment="top"></Label>
+        <Label text="Angular" textWrap="true" row="0" col="2" textAlignment="right" verticalAlignment="top"></Label>
+        
+    </GridLayout>
+    <Label text="Tap the button" class="h1 text-center"></Label>
+    <Button text="Tap" (tap)="onTap()" class="btn btn-primary btn-active"></Button>
+    <Label [text]="message" class="h2 text-center" textWrap="true"></Label>
+</StackLayout>
