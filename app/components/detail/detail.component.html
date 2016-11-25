@@ -1,7 +1,11 @@
-<ActionBar title="Detail" icon="" class="action-bar">
-  <NavigationButton text="Back" (tap)="goBack()" android.systemIcon="ic_menu_back"></NavigationButton>
-</ActionBar>
-<StackLayout class="p-10">
-    <Label text="Detailed info" class="h1"></Label>
-    <Label text="Even more awesome video workshops and info." class="h3" textWrap="true"></Label>
+<StackLayout>
+  <GridLayout rows="auto" columns="75,*,75" class="action-bar p-10">
+      <Button text="Close" (tap)="close()" row="0" col="0" class="action-item"></Button>
+      <Label text="Detail" textWrap="true" row="0" col="1" class="action-bar-title text-center"></Label>
+      
+  </GridLayout>
+  <StackLayout class="p-10" backgroundColor="#fff">
+      <Label text="Detailed info" class="h1"></Label>
+      <Label text="Even more awesome video workshops and info." class="h3" textWrap="true"></Label>
+  </StackLayout>
 </StackLayout>
