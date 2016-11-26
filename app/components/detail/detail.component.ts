@@ -1,7 +1,7 @@
-import { ModalDialogOptions } from './../../../platforms/ios/build/emulator/ngnative.app/app/tns_modules/nativescript-angular/directives/dialogs.d';
 import { Component } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { ModalDialogParams } from 'nativescript-angular/directives/dialogs';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Component({
   moduleId: module.id,
@@ -10,15 +10,25 @@ import { ModalDialogParams } from 'nativescript-angular/directives/dialogs';
 })
 export class DetailComponent {
 
-  public items: any[] = [
-    { title: 'NativeScript' },
-    { title: 'Angular' },
-    { title: 'TypeScript' },
-    { title: 'JavaScript' }
-  ];
+  public items$: BehaviorSubject<Array<any>> = new BehaviorSubject([]);
   
   constructor(private router: RouterExtensions, private params: ModalDialogParams) {
     console.log(params.context.msg);
+    let items = [
+      { title: 'NativeScript' },
+      { title: 'Angular' },
+      { title: 'TypeScript' },
+      { title: 'JavaScript' }
+    ];
+    let cnt = 0;
+    let timer = setInterval(() => {
+      if (cnt < 4) {
+        this.items$.next([...this.items$.getValue(), items[cnt]]);
+        cnt++;
+      } else {
+        clearInterval(timer);
+      }
+    }, 1000);
   }
 
   public onItemTap(e) {
