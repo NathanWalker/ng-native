@@ -14,7 +14,7 @@ export class DetailComponent {
   
   constructor(private router: RouterExtensions, private params: ModalDialogParams) {
     console.log(params.context.msg);
-    let items = [
+    let items: any[] = [
       { title: 'NativeScript' },
       { title: 'Angular' },
       { title: 'TypeScript' },

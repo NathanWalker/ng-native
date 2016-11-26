@@ -5,7 +5,7 @@
       
   </GridLayout>
   
-  <ListView [items]="items$|async" (itemTap)="onItemTap($event)" class="list-group" ios:height="100%" android:height="75%">
+  <ListView [items]="items$ | async" (itemTap)="onItemTap($event)" class="list-group" ios:height="100%" android:height="75%">
       <template let-item="item" let-odd="odd" let-even="even">
         <StackLayout>
           <Label [text]="item.title" class="list-group-item"></Label>
