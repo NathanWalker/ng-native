@@ -10,8 +10,21 @@ import { ModalDialogParams } from 'nativescript-angular/directives/dialogs';
 })
 export class DetailComponent {
 
+  public items: any[] = [
+    { title: 'NativeScript' },
+    { title: 'Angular' },
+    { title: 'TypeScript' },
+    { title: 'JavaScript' }
+  ];
+  
   constructor(private router: RouterExtensions, private params: ModalDialogParams) {
     console.log(params.context.msg);
+  }
+
+  public onItemTap(e) {
+    for (let key in e) {
+      console.log(`${key}: ${e[key]}`);
+    }
   }
   
   public goBack() {

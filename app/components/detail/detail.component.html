@@ -4,8 +4,13 @@
       <Label text="Detail" textWrap="true" row="0" col="1" class="action-bar-title text-center"></Label>
       
   </GridLayout>
-  <StackLayout class="p-10" backgroundColor="#fff">
-      <Label text="Detailed info" class="h1"></Label>
-      <Label text="Even more awesome video workshops and info." class="h3" textWrap="true"></Label>
-  </StackLayout>
+  
+  <ListView [items]="items" (itemTap)="onItemTap($event)" class="list-group" ios:height="100%" android:height="75%">
+      <template let-item="item" let-odd="odd" let-even="even">
+        <StackLayout>
+          <Label [text]="item.title" class="list-group-item"></Label>
+          
+        </StackLayout>
+      </template>
+  </ListView>
 </StackLayout>
