@@ -9,7 +9,7 @@ import { ComponentsModule, routes } from './components/components.module';
     bootstrap: [AppComponent],
     imports: [
         ComponentsModule,
-        NativeScriptRouterModule.forRoot(routes)
+        // NativeScriptRouterModule.forRoot(routes)
     ]
 })
 export class AppModule { }

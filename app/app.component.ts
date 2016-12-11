@@ -1,23 +1,32 @@
 import { Component } from "@angular/core";
-import { registerElement } from 'nativescript-angular/element-registry';
-registerElement('CheckBox', () => require('nativescript-checkbox').CheckBox);
+import { isIOS } from 'platform';
+import { topmost } from 'ui/frame';
+var themes = require('nativescript-themes');
 
 @Component({
     selector: "my-app",
     templateUrl: "app.component.html",
 })
 export class AppComponent {
-    public counter: number = 16;
-    
-    public get message(): string {
-        if (this.counter > 0) {
-            return this.counter + " taps left";
-        } else {
-            return "Hoorraaay! \nYou are ready to start building!";
+    private _active = 'app';
+
+    constructor() {
+        if (isIOS) {
+            topmost().ios.controller.navigationBar.barStyle = 1;
         }
-    }
+        let savedTheme = themes.getAppliedTheme('app.css');
+        if (savedTheme) {
+            this.changeTheme(savedTheme);
+        }
+    } 
     
-    public onTap() {
-        this.counter--;
+    public changeTheme(force?: string) {
+        if (this._active === 'app' || force === 'blue.css') {
+            this._active = 'blue';
+            themes.applyTheme(`${this._active}.css`);
+        } else {
+            this._active = 'app';
+            themes.applyTheme(`${this._active}.css`);
+        }
     }
 }
