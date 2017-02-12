@@ -2,6 +2,7 @@ hooks
 lib
 node_modules
 platforms
+!nativescript-filestack/platforms
 *.js
 *.map
 .vscode

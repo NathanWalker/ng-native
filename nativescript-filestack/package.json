@@ -1,0 +1,11 @@
+{
+  "name": "nativescript-filestack",
+  "version": "1.0.0",
+  "main": "filestack",
+  "typings": "index.d.ts",
+  "nativescript": {
+    "platforms": {
+      "ios": "2.5.0"
+    }
+  }
+}

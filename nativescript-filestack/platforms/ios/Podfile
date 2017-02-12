@@ -1,0 +1,2 @@
+platform :ios, '8.4'
+pod "FSPicker", "~> 1.1.3"
