@@ -13,7 +13,7 @@
     }
   },
   "scripts": {
-    "build.plugin": "tsc nativescript-filestack/filestack.ios.ts --types tns-platform-declarations/ios --lib es2016 -d true && tns plugin remove nativescript-filestack && tns plugin add nativescript-filestack",
+    "build.plugin": "tsc nativescript-filestack/filestack.ios.ts references.d.ts --lib es2016 -d true --experimentalDecorators true && tns plugin remove nativescript-filestack && tns plugin add nativescript-filestack",
     "start": "npm run build.plugin && tns run ios --emulator"
   },
   "dependencies": {
