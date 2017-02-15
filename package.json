@@ -13,8 +13,9 @@
     }
   },
   "scripts": {
-    "build.plugin": "tsc nativescript-filestack/filestack.ios.ts references.d.ts --lib es2016 -d true --experimentalDecorators true && tns plugin remove nativescript-filestack && tns plugin add nativescript-filestack",
-    "start": "npm run build.plugin && tns run ios --emulator"
+    "build.plugin": "tsc nativescript-filestack/filestack.*.ts references.d.ts --lib es2016 -d true --experimentalDecorators true && tns plugin remove nativescript-filestack && tns plugin add nativescript-filestack",
+    "start": "npm run build.plugin && tns run ios --emulator",
+    "start.android": "npm run build.plugin && tns run android --emulator"
   },
   "dependencies": {
     "@angular/common": "2.4.3",

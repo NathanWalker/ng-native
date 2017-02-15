@@ -1,0 +1,11 @@
+android {
+  productFlavors {
+    "nativescript-filestack" {
+      dimension "nativescript-filestack"
+    }
+  }
+}
+
+dependencies {
+  compile "io.filepicker:filepicker-android:3.9.0"
+}
