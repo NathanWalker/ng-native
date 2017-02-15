@@ -1,32 +1,47 @@
 import * as app from 'application';
+import { Observable } from 'data/observable';
 
 declare var io;
 const Filepicker = io.filepicker.Filepicker;
+const FilepickerCallback = io.filepicker.FilepickerCallback;
 
-export class Filestack {
+export class Filestack extends Observable {
 
   constructor(apiKey: string) {
+    super();
     Filepicker.setKey(apiKey);
     Filepicker.setAppName('Demo');
+  }
 
-    let intent = new android.content.Intent(app.android.context, java.lang.Class.forName('io.filepicker.Filepicker'));   
-
-    app.android.foregroundActivity.startActivityForResult(intent, Filepicker.REQUEST_CODE_GETFILE);
-
-    app.android.on(app.AndroidApplication.activityResultEvent, (args: any) => {
-      if (args.requestCode == Filepicker.REQUEST_CODE_GETFILE) {
-        if (args.resultCode == android.app.Activity.RESULT_OK) {
-          // Filepicker always returns array of FPFile objects
-          let fpFiles = args.intent.getParcelableArrayListExtra(Filepicker.FPFILES_EXTRA);
-
-          let files = [];
-          for (let i = 0; i < fpFiles.size(); i++) {
-            let rawFile = fpFiles.get(i);
-            console.log('file:', rawFile);
-            files.push(rawFile);
-          }
+  public uploadLocal(filePath: string) {
+    let uriToLocalFile = android.net.Uri.fromFile(new java.io.File(filePath));
+    Filepicker.uploadLocalFile(uriToLocalFile, app.android.context, new FilepickerCallback({
+      onFileUploadSuccess: (file) => {
+        let fpFile = {
+          container: file.getContainer(),
+          filename: file.getFilename(),
+          key: file.getKey(),
+          localPath: file.getLocalPath(),
+          size: file.getSize(),
+          type: file.getType(),
+          url: file.getUrl()
+        };
+        console.log('onFileUploadSuccess:', fpFile);
+        for (let key in fpFile) {
+          console.log(key + ':', fpFile[key]);
         }
+      },
+      onFileUploadError: (error: java.lang.Throwable) => {
+        console.log('onFileUploadError:', error);
+      },
+      onFileUploadProgress: (uri: android.net.Uri, progress: number) => {
+        console.log('onFileUploadProgress:', progress);
+        this.notify({
+          eventName: 'uploadProgress',
+          object: this,
+          data: Math.floor(progress * 100) // percentage
+        });
       }
-    });
+    }));
   }
 }

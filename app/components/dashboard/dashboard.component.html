@@ -1,7 +1,8 @@
-<ActionBar title="Using Objective C libs" icon="" class="action-bar">
+<ActionBar title="Using Native libraries/plugins" icon="" class="action-bar">
 </ActionBar>
 <ScrollView>
     <StackLayout class="p-20">
-        <Button text="Choose file..." (tap)="openFilePicker()" class="btn btn-primary"></Button>
+        <Label [text]="progress + '%'" class="h1 c-white text-center"></Label>
+        
     </StackLayout>
 </ScrollView>

@@ -1,5 +1,5 @@
-export declare class Filestack {
-    private _config;
-    private _storeOptions;
+import { Observable } from 'data/observable';
+export declare class Filestack extends Observable {
     constructor(apiKey: string);
+    uploadLocal(filePath: string): void;
 }

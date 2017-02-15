@@ -1,13 +1,10 @@
-import { Component } from "@angular/core";
-import { Filestack } from 'nativescript-filestack';
+import { Component, NgZone } from "@angular/core";
+import * as fs from 'file-system';
 
 @Component({
   selector: "my-app",
   templateUrl: "app.component.html",
 })
 export class AppComponent {
-
-  constructor() {
-    let filestack = new Filestack('AAU0YKA2QRXqFTH15tokSz');
-  }
+  
 }
