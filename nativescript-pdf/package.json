@@ -1,0 +1,11 @@
+{
+  "name": "nativescript-pdf",
+  "version": "1.0.0",
+  "main": "pdf",
+  "typings": "index.d.ts",
+  "nativescript": {
+    "platforms": {
+      "ios": "2.5.0"
+    }
+  }
+}

@@ -5,3 +5,4 @@ platforms
 *.js
 *.map
 .vscode
+!nativescript-pdf/platforms

@@ -12,6 +12,10 @@
       "version": "2.5.0"
     }
   },
+  "scripts": {
+    "build.plugin": "tsc nativescript-pdf/pdf.ios.ts references.d.ts --lib es2016 -d true --experimentalDecorators true && tns plugin remove nativescript-pdf && tns plugin add nativescript-pdf",
+    "start": "npm run build.plugin && tns run ios --emulator"
+  },
   "dependencies": {
     "@angular/common": "2.4.3",
     "@angular/compiler": "2.4.3",
@@ -22,6 +26,7 @@
     "@angular/platform-browser-dynamic": "2.4.3",
     "@angular/router": "3.4.3",
     "nativescript-angular": "1.4.0",
+    "nativescript-pdf": "file:nativescript-pdf",
     "nativescript-theme-core": "^1.0.2",
     "reflect-metadata": "~0.1.8",
     "rxjs": "~5.0.1",
