@@ -1,6 +1,2 @@
-export declare class Filestack {
-    private _config;
-    private _storeOptions;
-    constructor(apiKey: string);
-    addedFiles(files: NSArray<any>): void;
-}
+export * from './src/common';
+export * from './src/ios/filestack';

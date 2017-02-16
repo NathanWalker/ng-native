@@ -1,6 +1,5 @@
-import { Component, NgZone } from '@angular/core';
-import { Filestack } from 'nativescript-filestack';
-import * as fs from 'file-system';
+import { Component } from '@angular/core';
+import { Filestack, FSEvents } from 'nativescript-filestack';
 
 @Component({
   moduleId: module.id,
@@ -8,18 +7,19 @@ import * as fs from 'file-system';
   templateUrl: 'dashboard.component.html'
 })
 export class DashboardComponent {
-  public progress: number;
+  private _filestack: Filestack;
 
-  constructor(private ngZone: NgZone) {
-    let filestack = new Filestack('AAU0YKA2QRXqFTH15tokSz');
-    let file = fs.knownFolders.currentApp().getFile('ns-egghead.png');
-    filestack.on('uploadProgress', (event: any) => {
-      this.ngZone.run(() => {
-        this.progress = event.data;
-      });
-    })
-    filestack.uploadLocal(file.path);
-    
+  constructor() {
+    this._filestack = new Filestack('AAU0YKA2QRXqFTH15tokSz');
+  }
+
+  public openPicker() {
+    this._filestack.on(FSEvents.addedFiles, (event: any) => {
+      console.log('files added in component:', event.data);
+    });
+    this._filestack.open().then(() => {
+      console.log('opened.');
+    });
   }
   
 }

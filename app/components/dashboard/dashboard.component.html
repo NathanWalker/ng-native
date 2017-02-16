@@ -1,8 +1,9 @@
-<ActionBar title="Using Native libraries/plugins" icon="" class="action-bar">
+<ActionBar title="Using Native Libraries/Plugins" icon="" class="action-bar">
 </ActionBar>
 <ScrollView>
     <StackLayout class="p-20">
-        <Label [text]="progress + '%'" class="h1 c-white text-center"></Label>
+        <Button text="Choose file..." (tap)="openPicker()" class="btn btn-primary"></Button>
+        
         
     </StackLayout>
 </ScrollView>
