@@ -1,7 +1,18 @@
-<ActionBar title="My App" icon="" class="action-bar">
+<ActionBar title="iOS Custom View Components" icon="" class="action-bar">
 </ActionBar>
 <StackLayout class="p-20">
-    <Label text="Tap the button" class="h1 text-center"></Label>
-    <Button text="Tap" (tap)="onTap()" class="btn btn-primary btn-active"></Button>
-    <Label [text]="message" class="h2 text-center" textWrap="true"></Label>
+    <Clock class="clock" (loaded)="clockLoaded($event)"
+    [realTime]="realTime"
+    [setTimeViaTouch]="setTimeViaTouch"
+    ></Clock>
+    <Button text="Animate Time" (tap)="animateTime()"
+        class="btn btn-primary m-y-40"></Button>
+
+    <Button text="Toggle Real Time" (tap)="toggleRealTime()"
+        class="btn btn-outline m-y-20"></Button>
+
+    <Button text="Toggle Touch" (tap)="toggleTouch()"
+        class="btn btn-outline m-y-20"></Button>
+    
+    
 </StackLayout>
