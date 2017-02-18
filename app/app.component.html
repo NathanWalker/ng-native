@@ -1,5 +1,16 @@
 <ActionBar title="My App" icon="" class="action-bar">
 </ActionBar>
 <StackLayout class="p-20">
-    
+    <ios>
+        <AudioPlot 
+            #audioplot 
+            class="audioPlot" 
+            plotType="buffer"></AudioPlot>
+    </ios>
+    <android>
+        <GridLayout rows="auto" columns="auto">
+            <Label text="TODO" textWrap="true"></Label>
+            
+        </GridLayout>
+    </android>
 </StackLayout>
