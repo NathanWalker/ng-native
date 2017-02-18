@@ -1,0 +1,22 @@
+<resources 
+    xmlns:app="http://schemas.android.com/apk/res/android"> 
+
+    <style name="LyGoogleClock">
+        <item name="lyClockWidth">32dp</item>
+        <item name="lyHourWidth">32dp</item>
+        <item name="lyMinWidth">32dp</item>
+        <item name="lySecWidth">32dp</item>
+        <item name="lyTheme">@style/LyThemeIndustrial</item>
+    </style>
+
+    <style name="LyThemeIndustrial" parent="LyTheme">
+      <item name="lyColor0">#1C1918</item>
+      <item name="lyColor1">#BB9182</item>
+      <item name="lyColor2">#7E665E</item>
+      <item name="lyColor3">#5B826F</item>
+      <item name="lyColorColon">#41574D</item>
+      <item name="lyThickness">20</item>
+      <item name="lyColonThickness">2</item>
+    </style>
+  
+  </resources>

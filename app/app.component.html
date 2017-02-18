@@ -1,18 +1,5 @@
-<ActionBar title="iOS Custom View Components" icon="" class="action-bar">
+<ActionBar title="Android Custom View Components" icon="" class="action-bar">
 </ActionBar>
 <StackLayout class="p-20">
-    <Clock class="clock" (loaded)="clockLoaded($event)"
-    [realTime]="realTime"
-    [setTimeViaTouch]="setTimeViaTouch"
-    ></Clock>
-    <Button text="Animate Time" (tap)="animateTime()"
-        class="btn btn-primary m-y-40"></Button>
-
-    <Button text="Toggle Real Time" (tap)="toggleRealTime()"
-        class="btn btn-outline m-y-20"></Button>
-
-    <Button text="Toggle Touch" (tap)="toggleTouch()"
-        class="btn btn-outline m-y-20"></Button>
-    
-    
+    <Clock android.clockWidth="46dp"></Clock>
 </StackLayout>

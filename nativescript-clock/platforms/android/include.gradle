@@ -1,0 +1,17 @@
+android {
+  productFlavors {
+    "nativescript-clock" {
+      dimension "nativescript-clock"
+    }
+  }
+}
+
+allprojects {
+  repositories {
+    maven { url "https://jitpack.io" }
+  }
+}
+
+dependencies {
+  compile 'com.github.lypeer:GoogleClock:1.0.0'
+}
