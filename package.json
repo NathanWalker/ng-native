@@ -22,6 +22,8 @@
     "@angular/platform-browser-dynamic": "2.4.3",
     "@angular/router": "3.4.3",
     "nativescript-angular": "1.4.0",
+    "nativescript-audio": "^3.0.1",
+    "nativescript-ezaudio": "^1.1.7",
     "nativescript-theme-core": "^1.0.2",
     "reflect-metadata": "~0.1.8",
     "rxjs": "~5.0.1",
