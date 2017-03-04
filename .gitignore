@@ -1,0 +1,9 @@
+hooks
+lib
+node_modules
+platforms
+!nativescript-swiftycam/platforms
+*.js
+*.map
+.vscode
+typingz*
